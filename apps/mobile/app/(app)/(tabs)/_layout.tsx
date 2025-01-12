@@ -13,8 +13,7 @@ export default function TabLayout() {
         listeners={{ tabPress: () => haptics.selectionAsync() }}
         options={{
           title: '홈',
-          // header: () => <CustomHeader />,
-          headerTransparent: true,
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => <Icon.Home color={color} size={24} />,
         }}
       />
