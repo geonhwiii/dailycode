@@ -1,0 +1,13 @@
+{
+  "name": "@dailycode/utils",
+  "private": true,
+  "version": "1.0.0",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.4",
+    "react-native": "0.76.5"
+  }
+}

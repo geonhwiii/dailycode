@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "dailycode",
+  "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "start": "bun run --filter @dailycode/mobile start --ios"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest",
+    "typescript": "^5.3.3"
+  }
+}
