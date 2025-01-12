@@ -30,7 +30,7 @@ export default function TabLayout() {
         name='tab_3'
         listeners={{ tabPress: () => haptics.selectionAsync() }}
         options={{
-          title: 'My',
+          title: '프로필',
           headerRight: () => (
             <Pressable
               onPress={() => {
