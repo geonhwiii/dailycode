@@ -26,3 +26,4 @@ export { UserRoundPlus } from './UserRoundPlus';
 export { FileText } from './FileText';
 export { Mic } from './Mic';
 export { AudioLines } from './AudioLines';
+export { Compass } from './Compass';

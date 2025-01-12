@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { ActivityIndicator, Pressable } from 'react-native';
 import { cn } from '@dailycode/utils';
-import { Text } from '@dailycode/core';
+import { Text, ActivityIndicator, Pressable } from '@dailycode/core';
 
 const buttonVariants = cva('group flex items-center justify-center rounded-md', {
   variants: {
     variant: {
-      default: 'bg-blue-600 active:opacity-90',
+      default: 'bg-gray-900 active:opacity-90',
       darkgray: 'bg-gray-800 active:opacity-90',
       outline: 'border border-blue-600 bg-white active:bg-gray-100',
       outline_gray: 'border border-gray-200 bg-white active:bg-gray-100',
