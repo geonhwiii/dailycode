@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Text, View, Icon, Pressable } from '@dailycode/core';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
@@ -12,6 +12,8 @@ type Props = {
 
 export function HomeDatePickerItem({ date, isSelected, onPressDate }: Props) {
   const onPress = useCallback(() => onPressDate(date), [date, onPressDate]);
+  const week = useMemo(() => format(date, 'EEE', { locale: ko }), [date]);
+
   return (
     <Pressable
       className={cn(
@@ -20,9 +22,7 @@ export function HomeDatePickerItem({ date, isSelected, onPressDate }: Props) {
       )}
       onPress={onPress}
     >
-      <Text className={cn('text-sm', isSelected ? 'text-white' : 'text-gray-600')}>
-        {format(date, 'EEE', { locale: ko })}
-      </Text>
+      <Text className={cn('text-sm', isSelected ? 'text-white' : 'text-gray-600')}>{week}</Text>
       <View>
         {isSelected ? (
           <Icon.CircleCheck className='text-white' size={20} />
