@@ -30,3 +30,5 @@ export { Compass } from './Compass';
 export { CircleDashed } from './CircleDashed';
 export { CircleCheck } from './CircleCheck';
 export { Bot } from './Bot';
+export { X } from './X';
+export { ArrowUp } from './ArrowUp';

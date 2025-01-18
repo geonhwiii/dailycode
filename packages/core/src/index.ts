@@ -14,3 +14,4 @@ export { Text } from './Text';
 export { TouchableOpacity } from './TouchableOpacity';
 export { View } from './View';
 export { WebView } from './WebView';
+export { TextInput } from './TextInput';

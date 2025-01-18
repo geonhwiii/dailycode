@@ -1,6 +1,6 @@
 import { cn } from '@dailycode/utils';
+import { TextInput } from '@dailycode/core';
 import * as React from 'react';
-import { TextInput } from 'react-native';
 
 const Input = React.forwardRef<React.ElementRef<typeof TextInput>, React.ComponentPropsWithoutRef<typeof TextInput>>(
   (
