@@ -14,7 +14,7 @@ export default function WelcomePage() {
           </Text>
         </View>
         <View className='px-5'>
-          <Button pill size='lg' className='w-full' onPress={() => navigate('/(app)/(tabs)/tab_1')}>
+          <Button pill size='lg' className='w-full' onPress={() => navigate('/(auth)/login')}>
             {'시작하기'}
           </Button>
         </View>

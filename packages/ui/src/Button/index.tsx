@@ -8,7 +8,7 @@ const buttonVariants = cva('group flex items-center justify-center rounded-md', 
     variant: {
       default: 'bg-gray-900 active:opacity-90',
       darkgray: 'bg-gray-800 active:opacity-90',
-      outline: 'border border-blue-600 bg-white active:bg-gray-100',
+      outline: 'border border-gray-600 bg-white active:bg-gray-100',
       outline_gray: 'border border-gray-200 bg-white active:bg-gray-100',
     },
     size: {
@@ -32,7 +32,7 @@ const buttonTextVariants = cva('text-base font-medium', {
     variant: {
       default: 'text-white',
       darkgray: 'text-white',
-      outline: 'text-blue-700',
+      outline: 'text-gray-900',
       outline_gray: 'text-gray-700',
     },
     size: {
