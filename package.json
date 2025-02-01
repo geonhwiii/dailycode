@@ -4,7 +4,8 @@
   "type": "module",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "start": "bun run --filter @dailycode/mobile start --ios"
+    "start:ios": "bun run --filter @dailycode/mobile start --ios",
+    "start:server": "bun run --filter @dailycode/server start"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

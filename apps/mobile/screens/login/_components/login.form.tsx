@@ -2,9 +2,10 @@ import { type SubmitHandler, useFormContext } from 'react-hook-form';
 import { LoginFormID, type LoginFormData } from './login.provider';
 import { Button } from '@dailycode/ui';
 import { FormInput } from '@/components/form/Input';
-import { Text, Pressable, View } from '@dailycode/core';
+import { View } from '@dailycode/core';
 import { useSession } from '@/components/auth/ctx';
 import { useRouter } from 'expo-router';
+import { trpc } from '@/utils/trpc';
 
 export function LoginForm() {
   const { replace } = useRouter();
@@ -15,10 +16,20 @@ export function LoginForm() {
     formState: { errors, isSubmitting },
   } = useFormContext<LoginFormData>();
 
+  const loginMutation = trpc.auth.login.useMutation({
+    onSuccess: (data) => {
+      signIn(data.token);
+      replace('/(app)/(tabs)/tab_1');
+    },
+    onError: (error) => {
+      console.error('로그인 실패:', error);
+    },
+  });
+
   const onSubmitSignIn: SubmitHandler<LoginFormData> = async ({ email, password }) => {
-    await signIn('TOKEN');
-    replace('/(app)/(tabs)/tab_1');
+    loginMutation.mutate({ email, password });
   };
+
   return (
     <View className='flex-1 w-full'>
       <View className='flex-1' />
