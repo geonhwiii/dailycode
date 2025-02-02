@@ -36,6 +36,10 @@
       "a11y": {
         "useValidAriaValues": "off"
       },
+      "complexity": {
+        "noStaticOnlyClass": "off",
+        "noThisInStatic": "off"
+      },
       "style": {
         "noNonNullAssertion": "off",
         "useNodejsImportProtocol": "off"

@@ -1,17 +1,19 @@
-import { StorageKey } from '@/constants/storage';
-import { useStorageState } from '@/hooks/useStorageState';
-import React from 'react';
+import React, { useEffect } from 'react';
+import type { Session } from '@supabase/supabase-js';
+import { supabase } from '@/utils/supabase';
 
-const AuthContext = React.createContext<{
-  signIn: (token: string) => void;
+type AuthContextType = {
+  signIn: (session: Session) => void;
   signOut: () => void;
-  session?: string | null;
+  session: Session | null;
   isLoading: boolean;
-}>({
+};
+
+const AuthContext = React.createContext<AuthContextType>({
   signIn: () => null,
   signOut: () => null,
   session: null,
-  isLoading: false,
+  isLoading: true,
 });
 
 export function useSession() {
@@ -21,20 +23,36 @@ export function useSession() {
       throw new Error('useSession must be wrapped in a <SessionProvider />');
     }
   }
-
   return value;
 }
 
 export function SessionProvider(props: React.PropsWithChildren) {
-  const [[isLoading, session], setSession] = useStorageState(StorageKey.Session);
+  const [session, setSession] = React.useState<Session | null>(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setIsLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   return (
     <AuthContext.Provider
       value={{
-        signIn: async (token: string) => {
-          setSession(token);
+        signIn: (session: Session) => {
+          setSession(session);
         },
-        signOut: () => {
+        signOut: async () => {
+          await supabase.auth.signOut();
           setSession(null);
         },
         session,

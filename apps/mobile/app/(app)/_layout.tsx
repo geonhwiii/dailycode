@@ -8,7 +8,7 @@ export default function AppLayout() {
     return <Text>Loading...</Text>;
   }
   if (!session) {
-    return <Redirect href='/(auth)/login' />;
+    return <Redirect href='/(auth)/welcome' />;
   }
   return (
     <Stack>

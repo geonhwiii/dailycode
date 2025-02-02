@@ -1,5 +1,4 @@
 import { TabsLayout } from '@/components/TabsLayout';
-import { meta } from '@/constants/meta';
 import { haptics } from '@/libs/haptics';
 import { Icon, Pressable, View } from '@dailycode/core';
 import { Tabs, useRouter } from 'expo-router';

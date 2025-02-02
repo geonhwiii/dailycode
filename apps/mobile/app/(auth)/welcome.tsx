@@ -1,10 +1,8 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from '@dailycode/core';
-import { Button } from '@dailycode/ui';
-import { Link, useRouter } from 'expo-router';
+import { GithubLoginButton } from '@/components/auth/github-login-button';
 
 export default function WelcomePage() {
-  const { navigate } = useRouter();
   return (
     <SafeAreaView className='flex-1'>
       <View className='flex-1'>
@@ -14,9 +12,7 @@ export default function WelcomePage() {
           </Text>
         </View>
         <View className='px-5'>
-          <Button pill size='lg' className='w-full' onPress={() => navigate('/(auth)/login')}>
-            {'시작하기'}
-          </Button>
+          <GithubLoginButton className='w-full' />
         </View>
       </View>
     </SafeAreaView>
