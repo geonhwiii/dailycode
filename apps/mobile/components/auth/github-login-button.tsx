@@ -24,7 +24,6 @@ export function GithubLoginButton({ className }: Props) {
       console.error('GitHub 로그인 에러:', error);
     }
   };
-
   return (
     <Button className={className} size='lg' pill onPress={onSignWithGithub}>
       {'Github으로 시작하기'}
